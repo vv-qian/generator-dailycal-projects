@@ -76,42 +76,9 @@ module.exports = class extends Generator {
       this.templatePath('src/templates/meta/_social.html'),
       this.destinationPath('src/templates/meta/_social.html'));
     this.fs.copy(
-      this.templatePath('src/templates/meta/_telium.html'),
-      this.destinationPath('src/templates/meta/_telium.html'));
-    this.fs.copy(
       this.templatePath('src/templates/meta/_icons.html'),
       this.destinationPath('src/templates/meta/_icons.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/meta/_comments.html'),
-      this.destinationPath('src/templates/meta/_comments.html'));
-    // Ads
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_piano.html'),
-      this.destinationPath('src/templates/ads/_piano.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_banner1.html'),
-      this.destinationPath('src/templates/ads/_banner1.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube1.html'),
-      this.destinationPath('src/templates/ads/_cube1.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube2.html'),
-      this.destinationPath('src/templates/ads/_cube2.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube-super1.html'),
-      this.destinationPath('src/templates/ads/_cube-super1.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube-super2.html'),
-      this.destinationPath('src/templates/ads/_cube-super2.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube-super3.html'),
-      this.destinationPath('src/templates/ads/_cube-super3.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_cube-super4.html'),
-      this.destinationPath('src/templates/ads/_cube-super4.html'));
-    this.fs.copy(
-      this.templatePath('src/templates/ads/_script.html'),
-      this.destinationPath('src/templates/ads/_script.html'));
+    // Partials
     this.fs.copy(
       this.templatePath('src/templates/partials/_breakpoints.html'),
       this.destinationPath('src/templates/partials/_breakpoints.html'));
@@ -124,13 +91,29 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath('src/templates/partials/_nav.html'),
       this.destinationPath('src/templates/partials/_nav.html'));
+    // Sections
+    this.fs.copy(
+      this.templatePath('src/templates/_sections/text.html'),
+      this.destinationPath('src/templates/_sections/text.html'));
+    this.fs.copy(
+      this.templatePath('src/templates/_sections/section-header.html'),
+      this.destinationPath('src/templates/_sections/section-header.html'));
+    this.fs.copy(
+      this.templatePath('src/templates/_sections/image.html'),
+      this.destinationPath('src/templates/_sections/image.html'));
+    this.fs.copy(
+      this.templatePath('src/templates/_sections/credits.html'),
+      this.destinationPath('src/templates/_sections/credits.html'));
+    this.fs.copy(
+      this.templatePath('src/templates/_sections/d3-graphic.html'),
+      this.destinationPath('src/templates/_sections/d3-graphic.html'));
     // Template context
     this.fs.writeJSON('src/data/data.json', {});
     // Images directories
     mkdirp('./src/images');
     this.fs.copy(
-      this.templatePath('dist/images/share.jpg'),
-      this.destinationPath('dist/images/share.jpg'));
+      this.templatePath('src/images/masthead.png'),
+      this.destinationPath('src/images/masthead.png'));
     // Javascript
     this.fs.copy(
       this.templatePath('src/js/main-app.js'),

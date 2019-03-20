@@ -15,8 +15,8 @@ const querystring = require('querystring');
 
 module.exports = () => {
   const target = argv.production ? 
-    'interactives.politico.com' : 
-    'staging.interactives.politico.com';
+    'projects.dailycal.org' : 
+    'stage-projects.dailycal.org';
 
   const region = 'us-east-1';
 

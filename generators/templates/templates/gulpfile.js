@@ -8,7 +8,7 @@ const gutil = require('gulp-util');
 const envFile = require('node-env-file');
 const gulp = require('./gulp')([
   'aws',
-  <% if (archie) { %>'archie',<% } %>
+  'archie',
   'build',
   'dev',
   'data',
@@ -17,13 +17,13 @@ const gulp = require('./gulp')([
   'html',
   'img',
   'img-watch',
-  <% if (spreadsheet) { %>'spreadsheet',<% } %>
+  'spreadsheet'
 ]);
 
 /* Add secure keys to environment */
 envFile(path.join(__dirname, '.env'), { overwrite: true }); // Adds PASSPHRASE to env
 const secure = new SecureKeys({ secret: process.env.PASSPHRASE });
-const keysPath = path.join(os.homedir(), '.politico/interactives.json');
+const keysPath = path.join(os.homedir(), '.dailycal-wip/project-credentials.json');
 const keysObj = fs.readJsonSync(keysPath);
 try {
   env.set(secure.decrypt(keysObj));
@@ -31,7 +31,7 @@ try {
   gutil.log(
     gutil.colors.bgRed('PASSPHRASE ERROR:'),
     'Could not validate keys. Correct PASSPHRASE in .env or run',
-    gutil.colors.cyan('yo politico-interactives:passphrase'),
+    gutil.colors.cyan('yo dailycal-projects-wip:passphrase'),
     'to creare a new key set.'
   );
   gutil.log(e);

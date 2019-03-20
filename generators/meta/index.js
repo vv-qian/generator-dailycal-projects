@@ -17,9 +17,9 @@ module.exports = class extends Generator {
     this.slug = S(this.title);
 
     const timestamp = new Date();
-    const publishPath = `interactives/${timestamp.getFullYear()}/${this.slug}/`;
-    const prodUrl = `https://www.politico.com/${publishPath}`;
-    const stagingUrl = `https://s3.amazonaws.com/staging.interactives.politico.com/${publishPath}index.html`;
+    const publishPath = `${timestamp.getFullYear()}/${this.slug}/`;
+    const prodUrl = `http://projects.dailycal.org/${publishPath}`;
+    const stagingUrl = `http://stage-projects.dailycal.org/${publishPath}index.html`;
 
     this.fs.copy(
       this.templatePath('gitignore'),
@@ -58,20 +58,20 @@ module.exports = class extends Generator {
       header: {
         headline: 'This is your headline in the metadata file',
         subhed: 'Subhed lives in the metadata.',
-        byline: 'Polly Politico in metadata',
-        byline_link: 'https://www.politico.com/',
+        byline: 'Byline in metadata',
+        byline_link: 'https://www.dailycal.org/',
       },
       share: {
         fbook: {
           card_title: this.title,
-          card_description: 'The latest news from POLITICO.',
-          author: 'politico',
+          card_description: 'UC Berkeley\'s independent student-run newspaper',
+          author: 'dailycal',
         },
         twitter: {
           card_title: this.title,
-          share_tweet: 'The latest news from POLITICO.',
-          card_description: 'The latest news from POLITICO.',
-          author: '@politico',
+          share_tweet: 'UC Berkeley\'s independent student-run newspaper',
+          card_description: 'The latest news from The Daily Californian.',
+          author: '@dailycal',
         },
         image: {
           url: `${prodUrl}images/share.jpg`,
@@ -80,16 +80,8 @@ module.exports = class extends Generator {
           width: '600',
           height: '300',
         },
-        keywords: 'POLITICO, News, Washington D.C.',
-      },
-      telium: {
-        free_paid_content: 'free',
-        site_section: 'white house',
-        ad_unit_section: 'whitehouse',
-        content_author: 'Polly Politico|Peter Politico',
-        content_byline: 'By Polly Politico and Peter Politico',
-        page_name: `${this.title} — POLITICO`,
-      },
+        keywords: 'Daily Cal, news',
+      }
     };
 
     this.fs.writeJSON('meta.json', metaJSON);

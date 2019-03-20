@@ -1,8 +1,4 @@
-![POLITICO](https://rawgithub.com/The-Politico/src/master/images/logo/badge.png)
-
-![](dist/images/share.jpg)
-
-# interactive_<%= slug %>
+# <%= slug %>
 
 | Title | <%= title %> |
 |-|-|
@@ -10,4 +6,4 @@
 | Link | [<%= url %>](<%= url %>) |
 
 
-©<%= year %> POLITICO
+©<%= year %> The Daily Californian

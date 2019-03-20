@@ -1,15 +1,26 @@
-import '../scss/main.scss';
+require('../scss/main.scss');
 
-window.$('.custom-icon--facebook').click((e) => {
+window.$('.icon-facebook').click((e) => {
   e.preventDefault();
   const uri = encodeURIComponent(window.location.href);
   window.open(`https://www.facebook.com/sharer/sharer.php?u=${uri}`);
 });
 
 
-window.$('.bt-icon--twitter').click((e) => {
+window.$('.icon-twitter').click((e) => {
   e.preventDefault();
   const uri = window.location.href;
   const status = encodeURIComponent(`${window.tweetText} ${uri}`);
-  window.open(`https://twitter.com/intent/tweet?text=${status}`);
+  window.open(`https://twitter.com/home?status=${status}`);
 });
+
+// https://gist.github.com/mathewbyrne/1280286
+function slugify(text)
+{
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+}
