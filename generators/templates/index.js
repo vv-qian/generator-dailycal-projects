@@ -50,7 +50,7 @@ module.exports = class extends Generator {
     });
     this.composeWith(require.resolve('../gulp-common'));
     this.composeWith(require.resolve('../gulp-statics'));
-    if (this.archie) this.composeWith(require.resolve('../archie'));
+    this.composeWith(require.resolve('../archie'));
     if (this.spreadsheet) this.composeWith(require.resolve('../spreadsheet'));
     if (this.ai2html) this.composeWith(require.resolve('../ai2html'));
   }
