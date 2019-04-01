@@ -36,6 +36,9 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath('server/server.js'),
       this.destinationPath('server/server.js'));
+    this.fs.copy(
+      this.templatePath('server/scss.js'),
+      this.destinationPath('server/scss.js'));
     this.fs.copyTpl(
       this.templatePath('server/nunjucks-settings.js'),
       this.destinationPath('server/nunjucks-settings.js'), {

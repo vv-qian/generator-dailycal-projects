@@ -37,17 +37,11 @@
       {% include "partials/_header.html" %}
 
       <article class="container">
-        <p>Look around and to start changing code, go to src/templates/ to change html (to see where this text is coming from, head over to `src/templates/), go to `src/data/` to add data (in json, because data within this particular node environment must be required as if it were a module or package, go to `src/js` to add code for data processing, visualizing, etc., go to `src/scss` to add styles (to add new styles for graphics for example, there is the `_graphics.scss` file you can add styles to).</p>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+        <p>Hi! To find more instructions on how to navigate this template of code, if you haven't included ArchieML support (this pulls specifically-formatted text from a Google Doc with shared settings of "Anyone with the link can view"), then add ArchieML support to this project for a copy of <a href="https://docs.google.com/document/d/1KimvJF9qiNHZ_gx32hhGanN639-JYVeMtFSsqa3w1Lk/edit">this Google Doc</a> that is appropriately shared.</p>
 
-        {%block content%}
-
-          {% for section in ARCHIE.sections %}
-              {% include '_sections/' + section.type +'.html' %}
-          {% endfor %}
-
-        {%endblock%}
+        {% for section in ARCHIE.sections %}
+            {% include '_sections/' + section.type +'.html' %}
+        {% endfor %}
         <!-- Breakpoint reminder which you can delete -->
         {% include "partials/_breakpoints.html" %}
       </article>

@@ -1,7 +1,11 @@
+const path = require('path');
+const fs = require('fs-extra');
 const open = require('open');
 const express = require('express');
 const nunjucks = require('nunjucks');
 const nunjucksSettings = require('./nunjucks-settings.js');
+const context = require('./context.js');
+
 const router = require('./router.js');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -41,6 +45,21 @@ function startServer(port) {
     console.log(`app started on port ${port}`);
     open(`http://localhost:${port}`);
   });
+}
+
+module.exports = {
+  renderIndex: () => {
+    process.env.NODE_ENV = 'production';
+    
+    const ctx = context.getContext();
+    
+    ctx['env'] = process.env.NODE_ENV;
+
+    app.render('index.html', ctx, function(err, html) {
+      fs.writeFileSync('dist/index.html', html);
+      console.log('dist/index.html written');
+    });
+  }
 }
 
 startServer(argv.port || 3000);

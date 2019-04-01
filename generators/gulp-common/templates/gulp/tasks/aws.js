@@ -18,15 +18,15 @@ module.exports = () => {
     'projects.dailycal.org' : 
     'stage-projects.dailycal.org';
 
-  const region = 'us-east-1';
+  const region = 'us-west-1';
 
   const publishParams = {
     Bucket: target,
   };
 
-  if (argv.production) {
-    publishParams['Cloudfront'] = 'E3V6OHE700RHMR';
-  }
+  // if (argv.production) {
+  //   publishParams['Cloudfront'] = 'E3V6OHE700RHMR';
+  // }
 
   const meta = fs.readJsonSync(
     path.resolve(process.cwd(), 'meta.json'));
@@ -34,21 +34,23 @@ module.exports = () => {
     accessKeyId: process.env.awsAccessKey,
     secretAccessKey: process.env.awsSecretKey,
     region,
-    params: publishParams,
+    params: {
+      Bucket: target
+    },
   });
   const awsDirectory = meta.publishPath;
 
   const cacheControl = 'max-age=300, no-transform, public';
 
-  let acl = 'private';
+  // let acl = 'private';
 
-  if (argv.production) {
-    acl = 'public-read';
-  }
+  // if (argv.production) {
+  //   acl = 'public-read';
+  // }
 
   const headers = {
-    'Cache-Control': cacheControl,
-    'x-amz-acl': acl,
+    'Cache-Control': cacheControl
+    // 'x-amz-acl': acl,
   };
 
   // Ignore these files during versioning
@@ -59,12 +61,12 @@ module.exports = () => {
     /.*\.csv$/, // application data
   ];
 
-  const cloudFrontConfig = {
-    distribution: 'E3V6OHE700RHMR',
-    accessKeyId: process.env.awsAccessKey,
-    secretAccessKey: process.env.awsSecretKey,
-    indexRootPath: true,
-  };
+  // const cloudFrontConfig = {
+  //   distribution: 'E3V6OHE700RHMR',
+  //   accessKeyId: process.env.awsAccessKey,
+  //   secretAccessKey: process.env.awsSecretKey,
+  //   indexRootPath: true,
+  // };
 
   const checkFileExtension = function(file) {
     const videoExtensions = ['.mp4', '.ogv', '.webm'];

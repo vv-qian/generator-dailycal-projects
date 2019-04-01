@@ -112,8 +112,8 @@ module.exports = class extends Generator {
     // Images directories
     mkdirp('./src/images');
     this.fs.copy(
-      this.templatePath('src/images/masthead.png'),
-      this.destinationPath('src/images/masthead.png'));
+      this.templatePath('src/images/sproul.jpg'),
+      this.destinationPath('src/images/sproul.jpg'));
     // Javascript
     this.fs.copy(
       this.templatePath('src/js/main-app.js'),
