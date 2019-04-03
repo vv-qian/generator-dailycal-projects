@@ -103,7 +103,6 @@ module.exports = class extends Generator {
       'nunjucks@3.1.3',
       'open@0.0.5',
       'optimize-css-assets-webpack-plugin@3.2.0',
-      'politico-style@3.0.2',
       'portfinder@1.0.17',
       'postcss-loader@3.0.0',
       'run-sequence@2.2.1',
