@@ -29,25 +29,25 @@ app.use(express.static('src'));
 app.use('/images', express.static('dist/images'));
 app.use('/data', express.static('dist/data'));
 
-function startServer(port) {
-  const compiler = webpack(webpackConfig);
-  const middleware = webpackMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-  });
-  app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
-
-  app.listen(port, () => {
-    app.keepAliveTimeout = 0;
-  });
-
-  middleware.waitUntilValid(() => {
-    console.log(`app started on port ${port}`);
-    open(`http://localhost:${port}`);
-  });
-}
 
 module.exports = {
+  startServer: (port) => {
+    const compiler = webpack(webpackConfig);
+    const middleware = webpackMiddleware(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+    });
+    app.use(middleware);
+    app.use(webpackHotMiddleware(compiler));
+
+    app.listen(port, () => {
+      app.keepAliveTimeout = 0;
+    });
+
+    middleware.waitUntilValid(() => {
+      console.log(`app started on port ${port}`);
+      open(`http://localhost:${port}`);
+    });
+  },
   renderIndex: () => {
     process.env.NODE_ENV = 'production';
     
@@ -62,4 +62,3 @@ module.exports = {
   }
 }
 
-startServer(argv.port || 3000);

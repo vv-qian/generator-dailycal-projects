@@ -17,7 +17,7 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'archie',
-        message: 'Would you like to include an ArchieML configuration?',
+        message: 'Would you like to include an ArchieML configuration (Google Doc)?',
         default: false,
       },
       {

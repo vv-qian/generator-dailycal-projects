@@ -57,14 +57,6 @@ module.exports = class extends Generator {
       name: 'githubToken',
       message: 'What\'s your Github token?',
       when: a => a.write,
-    }, {
-      name: 'slackToken',
-      message: 'What\'s your Slack API token?',
-      when: a => a.write,
-    }, {
-      name: 'ngrokToken',
-      message: 'What\'s your ngrok token?',
-      when: a => a.write,
     }];
 
     return this.validKeys ? null :
@@ -83,9 +75,7 @@ module.exports = class extends Generator {
       awsSecretKey: this.answers.awsSecretKey,
       googleClientId: this.answers.googleClientId,
       googleClientSecret: this.answers.googleClientSecret,
-      githubToken: this.answers.githubToken,
-      slackToken: this.answers.slackToken,
-      ngrokToken: this.answers.ngrokToken,
+      githubToken: this.answers.githubToken
     }));
   }
 

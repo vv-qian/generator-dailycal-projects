@@ -10,5 +10,4 @@ module.exports = (cb) => {
   });
   cb();
 
-  // process.exit();
 };

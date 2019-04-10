@@ -1,4 +1,5 @@
 const { argv } = require('yargs');
+const app = require('../../server/server.js');
 const nodemon = require('gulp-nodemon');
 const ngrok = require('ngrok');
 const open = require('open');
@@ -26,6 +27,7 @@ module.exports = (cb) => {
         args: ['--port', foundPort.toString()],
         ignore: ['*'],
       });
+      app.startServer(foundPort);
       if (argv.ngrok) {
         startTunnel(foundPort);
       }
