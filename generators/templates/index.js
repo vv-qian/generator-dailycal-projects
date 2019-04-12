@@ -44,6 +44,7 @@ module.exports = class extends Generator {
   template() {
     this.composeWith(require.resolve('../bundler-webpack'), {
       archie: this.archie,
+      spreadsheet: this.spreadsheet
     });
     this.composeWith(require.resolve('../router'), {
       context: true,
@@ -125,7 +126,7 @@ module.exports = class extends Generator {
       'gulp-env',
       'node-env-file',
       'run-sequence',
-      'secure-keys',
+      'secure-keys-dc',
     ];
 
     this.yarnInstall(dependencies, { dev: true });

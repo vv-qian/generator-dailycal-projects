@@ -107,7 +107,7 @@ module.exports = class extends Generator {
       'postcss-loader@3.0.0',
       'run-sequence@2.2.1',
       'sass-loader@7.1.0',
-      'secure-keys@1.0.0',
+      'secure-keys-dc@1.2.0',
       'style-loader@0.23.0',
       'uglify-es@3.3.9',
       'uglifyjs-webpack-plugin@1.1.8',

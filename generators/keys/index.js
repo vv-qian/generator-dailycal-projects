@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator');
 const fs = require('fs-extra');
 const os = require('os');
 const path = require('path');
-const SecureKeys = require('secure-keys');
+const SecureKeys = require('secure-keys-dc');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 

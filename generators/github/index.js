@@ -4,7 +4,7 @@ const git = require('simple-git');
 const fs = require('fs-extra');
 const os = require('os');
 const path = require('path');
-const SecureKeys = require('secure-keys');
+const SecureKeys = require('secure-keys-dc');
 const chalk = require('chalk');
 
 module.exports = class extends Generator {
