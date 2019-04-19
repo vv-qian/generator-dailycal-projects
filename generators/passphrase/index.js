@@ -11,7 +11,7 @@ module.exports = class extends Generator {
     }];
 
     return this.prompt(questions).then((answers) => {
-      this.passphrase = answers.passphrase;
+      this.passphrase = (answers.passphrase).substring(0, 32);
     });
   }
 
