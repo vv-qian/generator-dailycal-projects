@@ -7,11 +7,11 @@ module.exports = class extends Generator {
       type: 'password',
       name: 'passphrase',
       message: 'Enter your passphrase:',
-      validate: d => d.length > 31 ? true : 'Need a passphrase of at least 32 characters. Try again.',
+      validate: d => d.length > 6 ? true : 'Need a passphrase of at least 6 characters. Try again.',
     }];
 
     return this.prompt(questions).then((answers) => {
-      this.passphrase = (answers.passphrase).substring(0, 32);
+      this.passphrase = ((answers.passphrase) + 'abcdefghijklmnopqrstuvwxyz').substring(0, 32);
     });
   }
 
