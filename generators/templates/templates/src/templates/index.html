@@ -37,7 +37,7 @@
       {% include "partials/_header.html" %}
 
       <article class="container">
-        <p>Hi! To find more instructions on how to navigate this template of code, if you haven't included ArchieML support (this pulls specifically-formatted text from a Google Doc with shared settings of "Anyone with the link can view"), then add ArchieML support to this project for a copy of <a href="https://docs.google.com/document/d/1KimvJF9qiNHZ_gx32hhGanN639-JYVeMtFSsqa3w1Lk/edit">this Google Doc</a> that is appropriately shared.</p>
+        <p>Hi! To find more instructions on how to navigate this template of code, if you haven't included ArchieML support (this pulls specifically-formatted text from a Google Doc with shared settings of "Anyone with the link can view"), then add ArchieML support to this project for a copy of <a href="https://docs.google.com/document/d/1KimvJF9qiNHZ_gx32hhGanN639-JYVeMtFSsqa3w1Lk/edit">this Google Doc</a> that is appropriately shared. Or if you've added Archie configuration and provided a doc id, then in terminal, exit out of the current process and run `gulp archie`.</p>
 
         {% for section in ARCHIE.sections %}
             {% include '_sections/' + section.type +'.html' %}
