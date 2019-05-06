@@ -36,7 +36,7 @@ module.exports = class extends Generator {
 
   validateKeys() {
     this.secure = new SecureKeys({ secret: this.options.passphrase });
-    this.keyPath = path.join(os.homedir(), '.dailycal-wip/project-credentials.json');
+    this.keyPath = path.join(os.homedir(), '.dailycal/project-credentials.json');
 
     try {
       const keysObj = fs.readJsonSync(this.keyPath);

@@ -1,5 +1,5 @@
 {
-  "name": "generator-dailycal-projects-wip",
+  "name": "generator-dailycal-projects",
   "description": "Yeoman generator for interactive projects at The Daily Californian.",
   "version": "0.10.0",
   "main": "generators/app/index.js",

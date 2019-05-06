@@ -1,4 +1,4 @@
-# generator-dailycal-projects-wip
+# generator-dailycal-projects
 
 A [Yeoman](http://yeoman.io) generator to scaffold a development environment for building interactive projects for The Daily Californian.
 
